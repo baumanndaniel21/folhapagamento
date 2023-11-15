@@ -15,8 +15,9 @@
     </form>
     <?php
         if($_SERVER["REQUEST_METHOD"]==="POST"){
-        $valorHora = $_POST['valorHora'];
-        $horasTrabalhadas = $_POST['horasTrabalhadas'];
+        $valorHora = isset($_POST['valorHora'])? floatval($_POST['valorHora']):0;
+        $horasTrabalhadas = isset($_POST['valorHora'])? floatval($_POST['horasTrabalhadas']):0;
+       
         echo "Valor hora: R$".number_format($valorHora,2,',','.');
         echo "<br>Horas trabalhadas no mês: $horasTrabalhadas";
         $salarioBruto = $valorHora * $horasTrabalhadas;
