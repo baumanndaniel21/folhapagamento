@@ -8,10 +8,20 @@
 <body>
     <form method="post">
         <label for="valorHora">Quanto você ganha por hora?</label>
-        <input id="valorHora"type="password" placeholder="R$" name="valorHora">
+        <input id="valorHora"type="text" placeholder="R$" name="valorHora">
         <label for="horasTrabalhadas">Quantas horas trabalhadas no mês?</label>
         <input id="horasTrabalhadas" type="text" placeholder="R$" name="horasTrabalhadas">
         <input type="submit" value="Calcular">
     </form>
+    <?php
+        if($_SERVER["REQUEST_METHOD"]==="POST"){
+        $valorHora = $_POST['valorHora'];
+        $horasTrabalhadas = $_POST['horasTrabalhadas'];
+        echo "Valor hora: $valorHora";
+        echo "<br>Horas trabalhadas no mês: $horasTrabalhadas";
+        $salarioBruto = $valorHora * $horasTrabalhadas;
+        echo "<br>Salario bruto: $salarioBruto";
+        }
+    ?>
 </body>
 </html>
